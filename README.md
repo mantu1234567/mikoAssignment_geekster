@@ -1,13 +1,17 @@
-### Miko Assignment Project
-Overview
+# Miko Assignment Project
+# Overview
 
 The Miko Assignment project is a simple Spring Boot application that provides an API for executing SQL commands to create tables and insert data. The application uses Redis to track the success or failure of these operations and stores metadata and data in text files.
 
-Features
+# Features
 
-Execute SQL Commands: The API can handle SQL commands for creating tables and inserting data.
-Track Operations: Redis is used to keep count of successful and failed operations.
-Store Data: Metadata and data are stored in text files.
+-Execute SQL Commands: The API can handle SQL commands for creating tables and inserting data.
+
+-Track Operations: Redis is used to keep count of successful and failed operations.
+
+-Store Data: Metadata and data are stored in text files.
+# Project Structure 
+![image](https://github.com/mantu1234567/mikoAssignment_geekster/assets/114673693/a84294f6-296b-4a69-a529-d498c18ee2fe)
 
 Requirements
 Java 17 or later
@@ -30,7 +34,7 @@ Run the project:
 bash
 Copy code
 mvn spring-boot:run
-Usage
+# Usage
 API Endpoint
 POST /execute: Executes a given SQL command.
 Request
@@ -38,18 +42,14 @@ URL: /execute
 Method: POST
 Body: Raw SQL string
 Example
-Create Table:
+# Create Table:
 
-sh
-Copy code
 curl -X POST http://localhost:8080/execute -d "CREATE TABLE USERS (id INTEGER, name String)"
 Insert Data:
 
-sh
-Copy code
-
 curl -X POST http://localhost:8080/execute -d "INSERT INTO USERS VALUES (1, 'Mantu')"
-Redis Keys
+
+# Redis Keys
 
 SUCCESS: Incremented for each successful operation.
 FAILURE: Incremented for each failed operation.
@@ -59,15 +59,15 @@ MikoAssignmentApplication.java
 
 This is the main entry point for the Spring Boot application.
 
-DatabaseController.java
+# DatabaseController.java
 
 This controller handles the /execute endpoint, processes the SQL string, and calls the appropriate service methods.
 
-DatabaseService.java
+# DatabaseService.java
 
 This service contains methods to handle CREATE TABLE and INSERT INTO SQL commands. The metadata and data are stored in metadata.txt and data.txt files respectively.
 
-Methods
+# Methods
 handleCreateTable(String sqlString): Parses and processes CREATE TABLE SQL commands.
 handleInsertTable(String sqlString): Parses and processes INSERT INTO SQL commands.
 Contributing
